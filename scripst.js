@@ -9,3 +9,26 @@ function showStatus() {
   console.log("Credits " + credits);
   console.log("Repairkits " + repairKits);
 }
+
+function useRepairKit() {
+  if (credits >= 100) {
+    credits -= 100;
+    repairKits++;
+  }
+}
+
+function useRepairKit() {
+  if (repairKits > 0 && spaceshipHP < 100) {
+    spaceshipHP += 25;
+    spaceshipHP = Math.min(spaceshipHP, 100);
+    repairKits -1;
+  }
+}
+
+function buyRepairKit() {
+  if (credits >= 100) {
+    credits -= 100;
+    repairKits +1;
+  }
+}
+
