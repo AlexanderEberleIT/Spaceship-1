@@ -21,14 +21,14 @@ function useRepairKit() {
   if (repairKits > 0 && spaceshipHP < 100) {
     spaceshipHP += 25;
     spaceshipHP = Math.min(spaceshipHP, 100);
-    repairKits - 1;
+    repairKits--;
   }
 }
 
 function buyRepairKit() {
   if (credits >= 100) {
     credits -= 100;
-    repairKits + 1;
+    repairKits++;
   }
 }
 
@@ -39,4 +39,3 @@ function takeDamage(damage) {
     spaceshipHP = 0;
   }
 }
-
