@@ -3,39 +3,37 @@ let spaceshipHP = 100;
 let credits = 300;
 let repairKits = 3;
 
-function showStatus() {
-  console.log("Name: " + spaceshipName);
-  console.log("HP: " + spaceshipHP);
-  console.log("Credits " + credits);
-  console.log("Repairkits " + repairKits);
+function renderStatus() {
+    document.getElementById("status").innerHTML = `
+    <table border="1">
+        <tr><th>Status</th><th>Wert</th></tr>
+        <tr><td>Name</td><td>${spaceshipName}</td></tr>
+        <tr><td>HP</td><td>${spaceshipHP}</td></tr>
+        <tr><td>Credits</td><td>${credits}</td></tr>
+        <tr><td>Repairkits</td><td>${repairKits}</td></tr>
+    </table>
+    `;
 }
 
 function useRepairKit() {
-  if (credits >= 100) {
-    credits -= 100;
-    repairKits++;
-  }
-}
-
-function useRepairKit() {
-  if (repairKits > 0 && spaceshipHP < 100) {
-    spaceshipHP += 25;
-    spaceshipHP = Math.min(spaceshipHP, 100);
-    repairKits--;
-  }
+    if (repairKits > 0 && spaceshipHP < 100) {
+        spaceshipHP += 25;
+        spaceshipHP = Math.min(spaceshipHP, 100);
+        repairKits--;
+    }
 }
 
 function buyRepairKit() {
-  if (credits >= 100) {
-    credits -= 100;
-    repairKits++;
-  }
+    if (credits >= 100) {
+        credits -= 100;
+        repairKits++;
+    }
 }
 
 function takeDamage(damage) {
-  spaceshipHP -= damage;
+    spaceshipHP -= damage;
 
-  if (spaceshipHP < 0) {
-    spaceshipHP = 0;
-  }
+    if (spaceshipHP < 0) {
+        spaceshipHP = 0;
+    }
 }
